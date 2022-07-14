@@ -1,10 +1,10 @@
 class Test < ApplicationRecord
   validates :title, :level, presence: true
 
-  has_one :category
+  belongs_to :category
   has_many :questions
 
-  def self.tests_by_category(title)
-    Test.all.where(category_id: Category.find_by(title: title).id).order(id: :desc)
+  def self.tests_by_category(name)
+    Test.joins('INNER JOIN categories ON tests.category_id = categories.id').where(categories: {title: name}).pluck(:title)
   end
 end

@@ -6,37 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = Category.create([{title: 'Web'}, {title: 'Mobile'}])
+web = Category.create(title: 'Web')
+mobile = Category.create(title: 'Mobile')
 
-users = User.create([
-  {name: 'Patrick', email: 'patrick@mail.ru', password: 'PaT12345', role: 'user'},
-  {name: 'Eric', email: 'eric@yandex.ru', password: '123eRiC', role: 'admin'},
-  {name: 'Admin', email: 'max@ya.ru', password: 'max007', role: 'admin'}
-])
+patrick = User.create(name: 'Patrick', email: 'patrick@mail.ru', password: 'PaT12345', role: 'user')
+eric = User.create(name: 'Eric', email: 'eric@yandex.ru', password: '123eRiC', role: 'admin')
+admin = User.create(name: 'Admin', email: 'max@ya.ru', password: 'max007', role: 'admin')
 
-tests = Test.create([
-  {title: 'Ruby', level: 1, category_id: Category.find_by(title: 'Web').id, author_id: User.find_by(name: 'Admin', role: 'admin').id},
-  {title: 'Rails', level: 2, category_id: Category.find_by(title: 'Web').id, author_id: User.find_by(name: 'Admin', role: 'admin').id},
-  {title: 'Kotlin', level: 2, category_id: Category.find_by(title: 'Mobile').id, author_id: User.find_by(name: 'Admin', role: 'admin').id}
-])
+ruby = web.tests.create(title: 'Ruby', level: 1, author: admin)
+rails = web.tests.create(title: 'Rails', level: 2, author: admin)
+kotlin = mobile.tests.create(title: 'Kotlin', level: 2, author: admin)
 
-questions = Question.create([
-  {body: 'Чем отличаются переменные, начинающиеся с @, @@ и $?', test_id: Test.find_by(title: 'Ruby').id},
-  {body: 'Что такое MVC?', test_id: Test.find_by(title: 'Rails').id},
-  {body: 'Что такое нулевая безопасность в Kotlin?', test_id: Test.find_by(title: 'Kotlin').id}
-])
+question_1 = ruby.questions.create(body: 'Чем отличаются переменные, начинающиеся с @, @@ и $?')
+question_2 = rails.questions.create(body: 'Что такое MVC?')
+question_3 = kotlin.questions.create(body: 'Что такое нулевая безопасность в Kotlin?')
 
-answers = Answer.create([
-  {body: 'Областью действия', correct: true, question_id: Question.find(1)},
-  {body: 'Ничем', question_id: Question.find(1)},
-  {body: 'Model-View-Controller', correct: true, question_id: Question.find(2)},
-  {body: 'Minimal-Vailable-Construction', question_id: Question.find(2)},
-  {body: 'Защита от нуля', correct: true, question_id: Question.find(3)},
-  {body: 'проблема безопасности языка', question_id: Question.find(3)}
-])
+answer_1 = question_1.answers.create(body: 'Областью действия', correct: true)
+answer_2 = question_1.answers.create(body: 'Ничем')
+answer_3 = question_2.answers.create(body: 'Model-View-Controller', correct: true)
+answer_4 = question_2.answers.create(body: 'Minimal-Vailable-Construction')
+answer_5 = question_3.answers.create(body: 'Защита от нуля', correct: true)
+answer_6 = question_3.answers.create(body: 'Проблема безопасности языка')
 
-completed = CompletedTest.create([
-  {user_id: User.find_by(name: 'Eric').id, test_id: Test.find_by(title: 'Ruby').id},
-  {user_id: User.find_by(name: 'Eric').id, test_id: Test.find_by(title: 'Rails').id}
-])
+completed_1 = CompletedTest.create(user: eric, test: ruby)
+completed_2 = CompletedTest.create(user: eric, test: rails)
 

@@ -3,7 +3,10 @@ class User < ApplicationRecord
 
   has_many :completed_tests
 
-  def completed_tests(level)
-    CompletedTest.all.where(user_id: self.id).where(test_id: Test.find_by(level: level).id)
+  def completed_tests_by_level(level)
+    CompletedTest.joins('INNER JOIN users ON completed_tests.user_id = users.id
+                         INNER JOIN tests ON completed_tests.test_id = tests.id')
+                         .where(tests: {level: level})
+                         .where(users: {id: self.id}).pluck(:title)
   end
 end
