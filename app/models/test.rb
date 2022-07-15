@@ -2,7 +2,7 @@ class Test < ApplicationRecord
   validates :title, :level, presence: true
 
   belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: :user_id
+  belongs_to :author, class_name: :User, foreign_key: :id
   has_many :questions
   has_many :tests_users
   has_many :users, through: :tests_users
