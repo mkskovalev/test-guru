@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_064002) do
-
-  create_table "admins", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_admins_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2022_07_15_082220) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -48,8 +41,9 @@ ActiveRecord::Schema.define(version: 2022_07_15_064002) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id", null: false
-    t.integer "author"
+    t.integer "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "tests_users", id: false, force: :cascade do |t|
@@ -66,7 +60,6 @@ ActiveRecord::Schema.define(version: 2022_07_15_064002) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "admins", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
