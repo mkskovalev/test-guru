@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-  validates :name, :email, :password, :role, presence: true
+  validates :name, :email, :password, presence: true
 
-  has_many :completed_tests
+  has_one :admin
+  has_many :tests_users
+  has_many :tests, through: :tests_users
 
   def completed_tests_by_level(level)
     Test.where(level: level)
