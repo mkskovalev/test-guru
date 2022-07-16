@@ -8,6 +8,6 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
 
   def self.tests_by_category(name)
-    Test.joins('INNER JOIN categories ON tests.category_id = categories.id').where(categories: {title: name}).pluck(:title)
+    Test.joins(:category).where(categories: {title: name}).pluck(:title)
   end
 end
