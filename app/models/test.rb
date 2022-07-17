@@ -1,6 +1,7 @@
 class Test < ApplicationRecord
-  validates :title, presence: true
-  validates_uniqueness_of :title, :scope => :level
+  validates :title, presence: true,
+                    uniqueness: { :scope => :level }
+
   validates :level, presence: true,
                     numericality: { only_integer: true }, allow_nil: true
 
@@ -13,5 +14,9 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
-  scope :tests_by_category, ->(name) { joins(:category).where(categories: {title: name}).pluck(:title) }
+  scope :joins_category, ->(name) { joins(:category).where(categories: {title: name}) }
+
+  def self.tests_by_category(name)
+    self.joins_category(name).pluck(:title)
+  end
 end
