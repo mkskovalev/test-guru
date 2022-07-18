@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_082220) do
+ActiveRecord::Schema.define(version: 2022_07_17_071801) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_082220) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id", null: false
+    t.index ["body", "question_id"], name: "index_answers_on_body_and_question_id", unique: true
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_082220) do
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
   create_table "questions", force: :cascade do |t|
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_082220) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "test_id", null: false
+    t.index ["body", "test_id"], name: "index_questions_on_body_and_test_id", unique: true
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -43,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_082220) do
     t.integer "category_id", null: false
     t.integer "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_07_15_082220) do
     t.string "password", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "answers", "questions"
