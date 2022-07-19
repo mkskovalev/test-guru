@@ -1,34 +1,37 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: %i[index create]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @questions = @test.questions.all
+    @questions = @test.questions
   end
 
   def show
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def new
   end
 
   def create
-    question = Question.create(question_params)
-
-    render plain: question.inspect
+    question = @test.questions.new(question_params)
+    if question.save
+      render plain: question.inspect
+    else
+      render plain: 'Введеные данные некорректны'
+    end
   end
 
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to test_questions_url
+    render plain: 'Вопрос удалён'
   end
 
   private
 
   def question_params
-    params.permit(:test_id).reverse_merge!(params.require(:question).permit(:body))
+    params.require(:question).permit(:body)
   end
 
   def find_test
