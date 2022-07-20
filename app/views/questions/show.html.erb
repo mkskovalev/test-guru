@@ -2,5 +2,5 @@
 
 <p><%= link_to 'Edit', edit_question_path(@question) %></p>
 <p><%= link_to 'Delete', question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<p><%= link_to 'Back to Tests', tests_path %></p>
+<p><%= link_to 'Back to Test', test_path(@question.test) %></p>
 
