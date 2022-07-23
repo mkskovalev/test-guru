@@ -1,6 +1,6 @@
 <h1>Passing the <%= @test_passage.test.title %> test</h1>
 
-<p>Question: <%= @completed_questions %> / <%= @test_passage.test.questions.count %></p>
+<p>Question: <%= @test_passage.question_count %> / <%= @test_passage.test.questions.count %></p>
 
 <b><%= @test_passage.current_question.body %></b>
 

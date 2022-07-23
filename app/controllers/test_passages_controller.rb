@@ -3,9 +3,6 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result]
 
   def show
-    unless @test_passage.comleted?
-      @completed_questions = @test_passage.question_count
-    end
   end
 
   def result
