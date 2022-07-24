@@ -1,4 +1,4 @@
-<% if @result >= 85 %>
+<% if @test_passage.success? %>
   <p>Correct answers: <b style="color: green;"><%= @result %>%</b></p>
   <h1><%= @test_passage.test.title %> test was successfully passed!</h1>
 <% else %>

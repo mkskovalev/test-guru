@@ -6,7 +6,9 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
-  def comleted?
+  SUCCESS_RATE = 85
+
+  def completed?
     current_question.nil?
   end
 
@@ -15,8 +17,12 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
 
-    self.current_question = @next_question
     save!
+  end
+
+  def success?
+    questions_count = self.test.questions.count.to_f
+    ((self.correct_questions / questions_count) * 100).round(0) >= SUCCESS_RATE
   end
 
   def question_count
@@ -39,5 +45,6 @@ class TestPassage < ApplicationRecord
 
   def before_update_set_next_question
     @next_question = test.questions.order(:id).where('id > ?', current_question.id).first
+    self.current_question = @next_question
   end
 end
