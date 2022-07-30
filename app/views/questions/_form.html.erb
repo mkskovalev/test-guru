@@ -6,10 +6,10 @@
 
   <p>
     <%= form.label :body %><br>
-    <%= form.text_field :body %>
+    <%= form.text_area :body, id: :question_body, rows: 7, cols: 60 %>
   </p>
 
   <p><%= form.submit %></p>
 <% end %>
 
-<p><%= link_to 'Back', question_path(@question) %></p>
+<p><%= link_to 'Back', test_path(@question.test) %></p>
