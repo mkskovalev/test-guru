@@ -2,8 +2,8 @@ require 'digest/sha1'
 
 class User < ApplicationRecord
 
-  validates_uniqueness_of :email
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP },
+                    uniqueness: true
 
   has_many :test_passages
   has_many :tests, through: :test_passages
