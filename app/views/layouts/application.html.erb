@@ -11,7 +11,25 @@
   </head>
 
   <body>
+
+    <div class="container">
+      <div class="logo">
+        <%= link_to 'Test Guru', root_path %>
+      </div>
+
+      <div class="user">
+        <% if logged_in? %>
+            Welcome, <b><%= current_user.name %> Guru</b><br>
+            <b><%= button_to "Logout", logout_path, method: "delete" %></b>
+        <% else%>
+            <b><%= button_to "Sign Up", signup_path, method: :get %></b>
+            <b><%= button_to "Login", login_path, method: :get %></b>
+        <% end%>
+      </div>
+  </div>
+
     <%= yield %>
+
     <%= render 'shared/footer' %>
   </body>
 </html>

@@ -18,6 +18,8 @@ module TestGuru
     #
     config.time_zone = "Novosibirsk"
 
+    config.api_only = false
+
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :ru
 
