@@ -17,7 +17,5 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, promrt: true %>
   </p>
 
-  <%= form.hidden_field :author, value: current_user %>
-
   <p><%= form.submit %></p>
 <% end %>

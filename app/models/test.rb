@@ -6,7 +6,7 @@ class Test < ApplicationRecord
                     numericality: { only_integer: true }, allow_nil: true
 
   belongs_to :category
-  belongs_to :author, class_name: :User
+  belongs_to :author, class_name: :Admin, foreign_key: :user_id
   has_many :questions, dependent: :delete_all
   has_many :test_passages
   has_many :users, through: :test_passages
