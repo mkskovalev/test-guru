@@ -1,0 +1,12 @@
+<div class="container admin">
+  <div class="logo">
+    Test Guru Admin Panel
+  </div>
+
+  <div class="user">
+    <% if user_signed_in? %>
+        Welcome, <b><%= current_user.email %></b> Guru<br>
+        <b><%= button_to "Logout", destroy_user_session_path, method: "delete" %></b>
+    <% end%>
+  </div>
+</div>
