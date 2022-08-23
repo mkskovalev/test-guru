@@ -18,9 +18,4 @@ class TestsController < ApplicationController
   def find_test
     @test = Test.find(params[:id])
   end
-
-  def rescue_with_test_not_found
-    render plain: 'Такого теста не нашлось :('
-  end
-
 end
