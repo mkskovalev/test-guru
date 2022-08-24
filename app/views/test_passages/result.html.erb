@@ -1,11 +1,11 @@
 <% if @test_passage.success? %>
-  <p>Correct answers: <b style="color: green;"><%= @result %>%</b></p>
-  <h1><%= @test_passage.test.title %> test was successfully passed!</h1>
+  <p><%= t('.correct_answers') %>: <b style="color: green;"><%= @result %>%</b></p>
+  <h1><%= t('.header.success', title: @test_passage.test.title) %></h1>
 <% else %>
-  <p>Correct answers: <b style="color: red;"><%= @result %>%</b></p>
-  <h1><%= @test_passage.test.title %> test failed!</h1>
+  <p><%= t('.correct_answers') %>: <b style="color: red;"><%= @result %>%</b></p>
+  <h1><%= t('.header.failed', title: @test_passage.test.title) %></h1>
 <% end %>
 
-<%= link_to 'Back to Tests', '/tests' %>
+<%= link_to t('.back_link'), '/tests' %>
 
 
