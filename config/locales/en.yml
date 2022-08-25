@@ -1,4 +1,7 @@
 en:
+  services:
+    gist_question_service:
+        title: "A question about %{test} from TestGuru"
   helpers:
     submit:
       test:
@@ -40,6 +43,9 @@ en:
       header: "Passing %{title} test"
       question_count: "Questions"
       next_button: "Next"
+    gist:
+      success: "Gist was successfuly created!"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
@@ -78,6 +84,12 @@ en:
       new:
         header: "Create new test"
         back_link: "Back"
+    gists:
+      index:
+        header: "All Gists"
+        gist_title: "Gist"
+        link: "Link"
+        email: "Email"
 
 
 
