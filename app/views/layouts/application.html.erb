@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>TestGuru</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,21 +15,7 @@
 
   <body>
 
-    <div class="container">
-      <div class="logo">
-        <%= link_to 'Test Guru', root_path %>
-      </div>
-
-      <div class="user">
-        <% if user_signed_in? %>
-            Welcome, <b><%= current_user.email %></b> Guru<br>
-            <b><%= button_to "Logout", destroy_user_session_path, method: "delete" %></b>
-        <% else%>
-            <b><%= button_to "Sign Up", new_user_registration_path, method: :get %></b>
-            <b><%= button_to "Login", new_user_session_path, method: :get %></b>
-        <% end%>
-      </div>
-    </div>
+    <%= render 'shared/nav' %>
 
     <%= render 'shared/flash' %>
 

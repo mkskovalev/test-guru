@@ -14,7 +14,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
-gem 'bootsnap', '>= 1.4.4', require: false
+
+# UI
+gem 'jquery-rails'
+gem 'bootstrap', '~> 5.2.0'
 
 # AUTH
 gem 'devise', '~> 4.1'
@@ -32,6 +35,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem 'letter_opener'
+  gem 'bootsnap'
 end
 
 group :test do

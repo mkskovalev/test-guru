@@ -1,12 +1,12 @@
-<div class="container admin">
-  <div class="logo">
-    Test Guru Admin Panel
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-brand"><%= link_to 'Test Guru', root_path %> Admin Panel</div>
+    <span class="navbar-text">
+      <% if user_signed_in? %>
+          Welcome, <b><%= current_user.email %></b> Guru |
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+      <% end%>
+    </span>
   </div>
+</nav>
 
-  <div class="user">
-    <% if user_signed_in? %>
-        Welcome, <b><%= current_user.email %></b> Guru<br>
-        <b><%= button_to "Logout", destroy_user_session_path, method: "delete" %></b>
-    <% end%>
-  </div>
-</div>

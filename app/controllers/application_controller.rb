@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  add_flash_types :danger, :info, :warning, :success, :messages
+
   def default_url_options(options={})
     { lang: ((I18n.locale == I18n.default_locale) ? nil : I18n.locale) }
   end
@@ -16,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    flash[:notice] = "Привет, #{resource.first_name}!"
+    flash[:info] = "Привет, #{resource.first_name}!"
     resource.admin? ? admin_tests_path : (stored_location_for(resource) || root_path)
   end
 end
