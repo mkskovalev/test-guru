@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :test_passages
   has_many :tests, through: :test_passages
-  has_many :gists, foreign_key: :user_id, dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   def tests_by_level(level)
     self.tests.where(level: level)

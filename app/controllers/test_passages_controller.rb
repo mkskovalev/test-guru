@@ -23,16 +23,15 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question)
-    call = result.call
-    @gist_url = call.html_url
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
+    @gist_url = result.html_url
 
-    save_gist if result.success?
-
-    flash_options = if result.success?
-      { success: "#{view_context.link_to(t('.success'), @gist_url, target: '_blank')}" }
+    if service.success?
+      save_gist
+      flash_options = { success: "#{view_context.link_to(t('.success'), @gist_url, target: '_blank')}" }
     else
-      { danger: t('.failure') }
+      flash_options = { danger: t('.failure') }
     end
 
     redirect_to @test_passage, flash_options
