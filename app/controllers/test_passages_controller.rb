@@ -1,6 +1,7 @@
 class TestPassagesController < ApplicationController
 
-  before_action :set_test_passage, only: %i[show update result]
+  skip_before_action :verify_authenticity_token
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show
   end
@@ -21,9 +22,28 @@ class TestPassagesController < ApplicationController
     end
   end
 
+  def gist
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
+
+    if service.success?
+      save_gist(result.html_url)
+      flash_options = { success: "#{view_context.link_to(t('.success'), result.html_url, target: '_blank')}" }
+    else
+      flash_options = { danger: t('.failure') }
+    end
+
+    redirect_to @test_passage, flash_options
+  end
+
   private
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def save_gist(gist_url)
+    current_user.gists.create(question_id: @test_passage.current_question.id,
+                              url: gist_url)
   end
 end

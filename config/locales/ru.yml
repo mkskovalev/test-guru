@@ -1,4 +1,7 @@
 ru:
+  services:
+    gist_question_service:
+      title: "Вопрос из теста %{test} из TestGuru"
   helpers:
     submit:
       test:
@@ -42,6 +45,9 @@ ru:
       header: "Тест: %{title}"
       question_count: "Вопросов"
       next_button: "Следующий вопрос"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
@@ -80,6 +86,12 @@ ru:
       new:
         header: "Новый тест"
         back_link: "Назад"
+    gists:
+      index:
+        header: "Все гисты"
+        gist_title: "Гист"
+        link: "Ссылка"
+        email: "Email"
 
 
 

@@ -25,6 +25,12 @@ gem 'devise', '~> 4.1'
 # LOCALIZATION
 gem 'rails-i18n'
 
+# NETWORKING
+gem 'faraday'
+gem "octokit", "~> 5.0"
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
