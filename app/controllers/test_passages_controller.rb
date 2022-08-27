@@ -25,11 +25,10 @@ class TestPassagesController < ApplicationController
   def gist
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.call
-    @gist_url = result.html_url
 
     if service.success?
-      save_gist
-      flash_options = { success: "#{view_context.link_to(t('.success'), @gist_url, target: '_blank')}" }
+      save_gist(result.html_url)
+      flash_options = { success: "#{view_context.link_to(t('.success'), result.html_url, target: '_blank')}" }
     else
       flash_options = { danger: t('.failure') }
     end
@@ -43,9 +42,8 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
-  def save_gist
-    Gist.create(user_id: current_user.id,
-                question_id: @test_passage.current_question.id,
-                url: @gist_url)
+  def save_gist(gist_url)
+    current_user.gists.create(question_id: @test_passage.current_question.id,
+                              url: gist_url)
   end
 end
