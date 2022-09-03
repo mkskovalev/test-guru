@@ -6,7 +6,11 @@
     <table class="table md-6">
       <thead>
         <tr>
-          <th><%= t('.test_title') %></th>
+          <th class="sort-by-title pointer">
+            <%= t('.test_title') %>
+            <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+          </th>
           <th><%= t('.level') %></th>
           <th><%= t('.question_count') %></th>
           <th><%= t('.action') %></th>
