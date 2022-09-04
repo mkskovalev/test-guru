@@ -14,4 +14,6 @@ ActiveStorage.start()
 
 // import 'bootstrap';
 // import '../assets/stylesheets/application.scss';
+require("packs/sorting")
+require("packs/password_confirmation")
 
