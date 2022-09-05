@@ -12,5 +12,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap';
-import '../assets/stylesheets/application.scss';
+// import 'bootstrap';
+// import '../assets/stylesheets/application.scss';
+require("packs/sorting")
+require("packs/password_confirmation")
+

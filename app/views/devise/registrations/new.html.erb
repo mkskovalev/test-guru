@@ -35,6 +35,8 @@
             </div>
 
             <div class="mb-3">
+              <%= octicon 'check-circle', class: 'text-success hide' %>
+              <%= octicon 'alert', class: 'text-alert hide' %>
               <%= f.label :password_confirmation, class: 'form-label' %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
             </div>
