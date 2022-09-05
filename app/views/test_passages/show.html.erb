@@ -5,6 +5,16 @@
 
     <p><%= t('.question_count') %>: <%= @test_passage.question_count %> / <%= @test_passage.test.questions.count %></p>
 
+    <div class="progress my-3">
+      <%= content_tag :div,
+                      class: 'progress-bar progress-bar-striped bg-success',
+                      role: 'progressbar',
+                      style: 'width: 25%',
+                      data: { current_question: @test_passage.question_count,
+                              questions_count: @test_passage.test.questions.count } do %>
+      <% end %>
+    </div>
+
     <div class="card border-primary">
       <div class="card-body">
 

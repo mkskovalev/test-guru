@@ -33,7 +33,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
-    redirect_to admin_question_url(@answer.question), , success: "Answer was successfully deleted."
+    redirect_to admin_question_url(@answer.question), success: "Answer was successfully deleted."
   end
 
   private
