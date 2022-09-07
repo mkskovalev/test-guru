@@ -86,6 +86,8 @@ ru:
       new:
         header: "Новый тест"
         back_link: "Назад"
+      form_inline:
+        submit: "Окей"
     gists:
       index:
         header: "Все гисты"

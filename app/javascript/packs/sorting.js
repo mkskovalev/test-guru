@@ -6,14 +6,17 @@ document.addEventListener('turbolinks:load', function() {
 
 function sortRowsByTitle() {
   var table = document.querySelector('table')
+  var thead = table.querySelector('thead')
+  var tbody = table.querySelector('tbody')
 
   // NodeList
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeList
-  var rows = table.querySelectorAll('tr')
+  var theadRow = thead.querySelector('tr')
+  var tbodyRows = tbody.querySelectorAll('tr')
   var sortedRows = []
 
-  for (var i = 1; i < rows.length; i++) {
-    sortedRows.push(rows[i])
+  for (var i = 0; i < tbodyRows.length; i++) {
+    sortedRows.push(tbodyRows[i])
   }
 
   if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
@@ -27,12 +30,14 @@ function sortRowsByTitle() {
   }
 
   var sortedTable = document.createElement('table')
+  var sortedThead = sortedTable.appendChild(document.createElement('thead'))
+  var sortedTbody = sortedTable.appendChild(document.createElement('tbody'))
 
   sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  sortedThead.appendChild(theadRow)
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    sortedTbody.appendChild(sortedRows[i])
   }
 
   table.parentNode.replaceChild(sortedTable, table)

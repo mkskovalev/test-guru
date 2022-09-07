@@ -84,6 +84,8 @@ en:
       new:
         header: "Create new test"
         back_link: "Back"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "All Gists"

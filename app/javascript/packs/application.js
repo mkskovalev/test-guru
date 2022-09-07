@@ -16,4 +16,6 @@ ActiveStorage.start()
 // import '../assets/stylesheets/application.scss';
 require("packs/sorting")
 require("packs/password_confirmation")
+require("packs/form_inline")
+require("packs/progress_bar")
 
