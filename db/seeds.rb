@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-web = Category.create(title: 'Web')
-mobile = Category.create(title: 'Mobile')
+web = Category.first
+mobile = Category.last
 
-patrick = User.create(name: 'Patrick', email: 'patrick@mail.ru', password: 'PaT12345')
-eric = User.create(name: 'Eric', email: 'eric@yandex.ru', password: '123eRiC')
-max = User.create(name: 'Max', email: 'max@ya.ru', password: 'max007')
+patrick = User.create(first_name: 'Patrick', email: 'patrick@mail.ru', password: 'PaT12345')
+eric = User.create(first_name: 'Eric', email: 'eric@yandex.ru', password: '123eRiC')
+max = Admin.create(first_name: 'Max', email: 'max@ya.ru', password: 'max007')
 
 ruby = web.tests.create(title: 'Ruby', level: 1, user_id: max.id)
 rails = web.tests.create(title: 'Rails', level: 2, user_id: max.id)
