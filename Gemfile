@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 gem 'spring'
+gem 'bootsnap'
 
 # UI
 gem 'bootstrap', '~> 5.2.0'
@@ -42,7 +43,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'letter_opener'
-  gem 'bootsnap'
 end
 
 group :test do
