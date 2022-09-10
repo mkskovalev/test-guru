@@ -1,0 +1,31 @@
+<div class="row justify-content-center mt-3 mx-3">
+  <div class="col col-md-6">
+
+    <h1>Contact Us</h1>
+
+    <p>We welcome your feedback. Please submit the form below to let us know what you think or alert us to any problems you are having with Test Guru.</p>
+
+    <h2>Feedback</h2>
+
+    <%= form_with url: send_path, local: true, method: :post do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :email, class: 'form-label' %>
+        <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :message, class: 'form-label' %>
+        <%= f.text_area :message, size: "70x5", class: 'form-control', autocomplete: "email" %>
+      </div>
+
+      <%= f.submit "Send message", class: 'btn btn-primary' %>
+
+    <% end%>
+
+    <div class="mt-3">
+      <%= link_to 'Return to Tests', root_path %>
+    </div>
+
+  </div>
+</div>

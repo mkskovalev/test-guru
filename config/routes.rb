@@ -30,4 +30,7 @@ Rails.application.routes.draw do
 
   end
 
+  get 'feedback', to: 'feedback#index'
+  post 'update', to: 'feedback#update', as: 'send'
+
 end
