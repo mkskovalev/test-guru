@@ -1,27 +1,17 @@
 class FeedbackController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index
+  def new
   end
 
-  def update
-    required = [:email, :message]
-    form_complete = true
-
-    required.each do |f|
-      if params.has_key? f and not params[f].blank?
-      else
-        form_complete = false
-      end
-    end
-
-    if form_complete
+  def create
+    if params[:email].present? && params[:message].present?
       FeedbackMailer.feedback_email(params[:email], params[:message]).deliver_now
       flash[:success] = 'Your feedback was successfuly send!'
-      render :index
+      render :new
     else
       flash[:danger] = 'Error! Feedback dosnt send, try again!'
-      render :index
+      render :new
     end
   end
 end
