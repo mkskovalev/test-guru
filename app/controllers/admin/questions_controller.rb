@@ -17,6 +17,8 @@ class Admin::QuestionsController < Admin::BaseController
     if question.save
       redirect_to admin_test_path(@test), success: "Question was successfully created."
     else
+      @question = @test.questions.new
+      flash[:danger] = "Question not save. Сorrect the mistakes and try again."
       render :new
     end
   end

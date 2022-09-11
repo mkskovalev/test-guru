@@ -1,5 +1,7 @@
 class Answer < ApplicationRecord
-  validates :body, presence: true
+  validates :body, presence: true,
+                   uniqueness: true
+
   validate :validate_count_in_question
 
   belongs_to :question
