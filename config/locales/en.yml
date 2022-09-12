@@ -73,6 +73,7 @@ en:
         questions_count: "Questions"
         action: "Actions"
         new_test_link: "New Test"
+        activity: "Activated"
       test:
         show_link: "Show"
         edit_link: "Edit"

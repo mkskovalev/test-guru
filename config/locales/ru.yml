@@ -75,6 +75,7 @@ ru:
         questions_count: "Вопросов"
         action: "Действия"
         new_test_link: "Новый тест"
+        activity: "Активность"
       test:
         show_link: "Просмотр"
         edit_link: "Изменить"

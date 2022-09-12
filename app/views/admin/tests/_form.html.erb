@@ -19,6 +19,13 @@
       <%= form.collection_select :category_id, Category.all, :id, :title, promrt: true, class: 'form-control' %>
     </div>
 
+    <div class="mb-3">
+      <div class="form-check">
+        <%= form.check_box :active, class: 'form-check-input' %>
+        <%= form.label :activate, class: 'form-check-label' %>
+      </div>
+    </div>
+
     <%= form.submit class: 'btn btn-primary' %>
 
   </div>
