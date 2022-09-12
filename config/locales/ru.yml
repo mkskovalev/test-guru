@@ -72,7 +72,7 @@ ru:
         header: "Доступные тесты"
         test_title: "Название"
         level: "Уровень"
-        question_count: "Вопросов"
+        questions_count: "Вопросов"
         action: "Действия"
         new_test_link: "Новый тест"
       test:
