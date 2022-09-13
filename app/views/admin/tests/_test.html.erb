@@ -4,6 +4,14 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td class="align-middle"><%= test.level %></td>
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle">
+    <% if test.activated? %>
+      <%= octicon 'check-circle', class: 'text-success' %>
+    <% else %>
+      <%= octicon 'eye-closed', class: 'text-alert' %>
+    <% end %>
+  </td>
   <td class="align-middle"><%= link_to t('.show_link'), admin_test_path(test) %></td>
   <td class="align-middle">
     <%= link_to t('.edit_link'),

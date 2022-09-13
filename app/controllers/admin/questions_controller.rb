@@ -13,8 +13,8 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def create
-    question = @test.questions.new(question_params)
-    if question.save
+    @question = @test.questions.new(question_params)
+    if @question.save
       redirect_to admin_test_path(@test), success: "Question was successfully created."
     else
       render :new

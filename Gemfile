@@ -5,7 +5,8 @@ ruby '3.0.0'
 
 
 gem 'rails', '~> 6.1.6'
-gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
@@ -14,6 +15,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
+gem 'spring'
+gem 'bootsnap'
 
 # UI
 gem 'bootstrap', '~> 5.2.0'
@@ -39,9 +42,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  gem 'spring'
   gem 'letter_opener'
-  gem 'bootsnap'
 end
 
 group :test do

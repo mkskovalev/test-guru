@@ -70,9 +70,10 @@ en:
         header: "Tricky Tests"
         test_title: "Title"
         level: "Level"
-        question_count: "Questions"
+        questions_count: "Questions"
         action: "Actions"
         new_test_link: "New Test"
+        activity: "Activated"
       test:
         show_link: "Show"
         edit_link: "Edit"
