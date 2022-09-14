@@ -49,6 +49,14 @@ ru:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
 
+  badges:
+    index:
+      my_badges_header: "Мои бейджи"
+      header: "Все бейджи"
+      badge_title: "Название"
+      image: "Изображение"
+      no_badges: "У вас пока нет бейджей..."
+
   admin:
     tests:
       create:
@@ -95,10 +103,33 @@ ru:
         gist_title: "Гист"
         link: "Ссылка"
         email: "Email"
-
-
-
-
+    badges:
+      create:
+        success: "Бейдж успешно создан"
+      update:
+        success: "Бейдж успешно обновлен"
+      destroy:
+        success: "Бейдж успешно удален"
+      index:
+        header: "Бейджи"
+        badge_title: "Нзавание"
+        image: "Изображение"
+        rule: "Правило"
+        action: "Действия"
+        new_badge_link: "Создать бейдж"
+      badge:
+        show_link: "Просмотр"
+        edit_link: "Изменить"
+        delete_link: "Удалить"
+      new:
+        header: "Новый бейдж"
+        back_link: "Назад"
+      show:
+        title: "Название"
+        edit_link: "Изменить"
+        back_link: "Назад к бейджам"
+      edit:
+        title: "Редактирование бейджа"
 
 
 

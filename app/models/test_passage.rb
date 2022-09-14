@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
+  scope :completed, -> { where(completed: true) }
+
   SUCCESS_RATE = 85
 
   def completed?
@@ -18,6 +20,10 @@ class TestPassage < ApplicationRecord
     end
 
     save!
+  end
+
+  def completed_successfuly
+    update_column(:completed, true) if self.success?
   end
 
   def success?
