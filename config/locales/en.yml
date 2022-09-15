@@ -47,6 +47,14 @@ en:
       success: "Gist was successfuly created!"
       failure: "An error occurred while saving gist"
 
+  badges:
+    index:
+      my_badges_header: "My badges"
+      header: "All Badges"
+      badge_title: "Title"
+      image: "Image"
+      no_badges: "You don't have badges yet..."
+
   admin:
     tests:
       create:
@@ -93,8 +101,33 @@ en:
         gist_title: "Gist"
         link: "Link"
         email: "Email"
-
-
+    badges:
+      create:
+        success: "Badge was successfuly created."
+      update:
+        success: "Badge was successfuly updated."
+      destroy:
+        success: "Badge was successfuly deleted."
+      index:
+        header: "Badges"
+        badge_title: "Title"
+        image: "Image"
+        rule: "Rule"
+        action: "Actions"
+        new_badge_link: "New Badge"
+      badge:
+        show_link: "Show"
+        edit_link: "Edit"
+        delete_link: "Delete"
+      new:
+        header: "Create new badge"
+        back_link: "Back"
+      show:
+        title: "Title"
+        edit_link: "Edit"
+        back_link: "Back to Badges"
+      edit:
+        title: "Edit Badge"
 
 
 

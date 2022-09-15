@@ -1,0 +1,38 @@
+<div class="row justify-content-center mt-3 mx-3">
+  <div class="col col-md-12">
+
+    <h1><%= t('.my_badges_header') %></h1>
+
+    <% if current_user.badges.present? %>
+      <table class="table md-6">
+        <thead>
+          <tr>
+            <th><%= t('.badge_title') %></th>
+            <th><%= t('.image') %></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <%= render @user_badges %>
+
+      </table>
+    <% else %>
+      <%= t('.no_badges') %>
+    <% end %>
+
+    <h1><%= t('.header') %></h1>
+
+    <table class="table md-6">
+      <thead>
+        <tr>
+          <th><%= t('.badge_title') %></th>
+          <th><%= t('.image') %></th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <%= render @badges %>
+
+    </table>
+  </div>
+</div>
