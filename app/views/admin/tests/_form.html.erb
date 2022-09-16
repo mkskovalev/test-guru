@@ -26,6 +26,15 @@
       </div>
     </div>
 
+    <div class="mb-3">
+      <div class="form-check">
+        <%= form.check_box :with_timer, class: 'with-timer form-check-input' %>
+        <%= form.label :has_timer, class: 'form-check-label' %>
+      </div>
+    </div>
+
+    <div class="time mb-3"></div>
+
     <%= form.submit class: 'btn btn-primary' %>
 
   </div>

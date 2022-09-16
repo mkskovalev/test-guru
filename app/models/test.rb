@@ -24,4 +24,8 @@ class Test < ApplicationRecord
   def activated?
     self.active == true
   end
+
+  def with_timer?
+    self.with_timer == true
+  end
 end

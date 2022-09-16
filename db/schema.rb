@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_120427) do
+ActiveRecord::Schema.define(version: 2022_09_15_205412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,9 +92,19 @@ ActiveRecord::Schema.define(version: 2022_09_14_120427) do
     t.integer "category_id", null: false
     t.integer "user_id"
     t.boolean "active", default: false
+    t.boolean "with_timer", default: false
+    t.integer "time"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
+  end
+
+  create_table "timers", force: :cascade do |t|
+    t.bigint "test_passage_id", null: false
+    t.integer "end_time", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_passage_id"], name: "index_timers_on_test_passage_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -134,4 +144,5 @@ ActiveRecord::Schema.define(version: 2022_09_14_120427) do
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
+  add_foreign_key "timers", "test_passages"
 end
