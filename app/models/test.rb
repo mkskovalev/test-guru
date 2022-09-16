@@ -5,6 +5,10 @@ class Test < ApplicationRecord
   validates :level, presence: true,
                     numericality: { only_integer: true }, allow_nil: true
 
+  validates :time, presence: true,
+                    numericality: { only_integer: true,
+                                    greater_than_or_equal_to: 0 }
+
   belongs_to :category
   belongs_to :author, class_name: :Admin, foreign_key: :user_id
   has_many :questions, dependent: :destroy
@@ -23,9 +27,5 @@ class Test < ApplicationRecord
 
   def activated?
     self.active == true
-  end
-
-  def with_timer?
-    self.with_timer == true
   end
 end

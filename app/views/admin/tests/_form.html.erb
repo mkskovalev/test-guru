@@ -27,13 +27,9 @@
     </div>
 
     <div class="mb-3">
-      <div class="form-check">
-        <%= form.check_box :with_timer, class: 'with-timer form-check-input' %>
-        <%= form.label :has_timer, class: 'form-check-label' %>
-      </div>
+      <%= form.label :time, 'Execution time (0 if test without timer)', class: 'form-label' %>
+      <%= form.number_field :time, class: 'form-control' %>
     </div>
-
-    <div class="time mb-3"></div>
 
     <%= form.submit class: 'btn btn-primary' %>
 

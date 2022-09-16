@@ -7,7 +7,7 @@
 
     <%= content_tag :div,
                     class: 'timer-container',
-                    data: { end_time: @test_passage.timer.end_time,
+                    data: { end_time: @test_passage.end_time,
                             test_passage_id: @test_passage.id } do %>
 
       Оставшееся время: <%= content_tag :b, '', id: 'timer' %>

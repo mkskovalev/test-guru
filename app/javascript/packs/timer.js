@@ -21,7 +21,7 @@ document.addEventListener('turbolinks:load', function() {
 
     } else {
 
-      window.location.replace("/test_passages/" + TestPassageId + "/result?status=faild_by_time")
+      window.location.replace("/test_passages/" + TestPassageId + "/result")
 
     }
 

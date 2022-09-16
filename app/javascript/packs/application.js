@@ -19,5 +19,4 @@ require("packs/password_confirmation")
 require("packs/form_inline")
 require("packs/progress_bar")
 require("packs/timer")
-require("packs/show_time_input")
 

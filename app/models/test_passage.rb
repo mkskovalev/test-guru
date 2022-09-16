@@ -10,6 +10,7 @@ class TestPassage < ApplicationRecord
   scope :completed, -> { where(completed: true) }
 
   SUCCESS_RATE = 85
+  SECONDS_IN_MINUTE = 60
 
   def completed?
     current_question.nil?
@@ -34,6 +35,14 @@ class TestPassage < ApplicationRecord
 
   def question_count
     self.test.questions.where("id <= ?", self.current_question.id).count
+  end
+
+  def not_expired?
+    Time.now.to_i > end_time
+  end
+
+  def end_time
+    (self.created_at + (self.test.time * SECONDS_IN_MINUTE)).to_i
   end
 
   private
