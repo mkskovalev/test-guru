@@ -24,19 +24,21 @@ class TestPassage < ApplicationRecord
   end
 
   def completed_successfuly
-    update_column(:completed, true) if self.success?
+    update_column(:completed, true)
   end
 
   def success?
-    questions_count = self.test.questions.count.to_f
-    ((self.correct_questions / questions_count) * 100).round(0) >= SUCCESS_RATE
+    unless self.expired?
+      questions_count = self.test.questions.count.to_f
+      ((self.correct_questions / questions_count) * 100).round(0) >= SUCCESS_RATE
+    end
   end
 
   def question_count
     self.test.questions.where("id <= ?", self.current_question.id).count
   end
 
-  def not_expired?
+  def expired?
     Time.now.to_i > end_time
   end
 

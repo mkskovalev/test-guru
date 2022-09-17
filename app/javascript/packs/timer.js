@@ -21,7 +21,7 @@ document.addEventListener('turbolinks:load', function() {
 
     } else {
 
-      window.location.replace("/test_passages/" + TestPassageId + "/result")
+      document.getElementById("timer").innerHTML = '<b>Time is up</b>'
 
     }
 

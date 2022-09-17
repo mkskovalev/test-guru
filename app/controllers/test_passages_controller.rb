@@ -14,10 +14,13 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed? && @test_passage.not_expired?
-      @test_passage.completed_successfuly
-      RewardsService.new(@test_passage).give_rewards if @test_passage.success?
-      TestsMailer.completed_test(@test_passage).deliver_now
+    if @test_passage.completed? || @test_passage.expired?
+
+      if @test_passage.success?
+        @test_passage.completed_successfuly
+        RewardsService.new(@test_passage).give_rewards
+        TestsMailer.completed_test(@test_passage).deliver_now
+      end
 
       redirect_to result_test_passage_path(@test_passage)
     else
