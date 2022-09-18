@@ -26,6 +26,11 @@
       </div>
     </div>
 
+    <div class="mb-3">
+      <%= form.label :time, 'Execution time (0 if test without timer)', class: 'form-label' %>
+      <%= form.number_field :time, class: 'form-control' %>
+    </div>
+
     <%= form.submit class: 'btn btn-primary' %>
 
   </div>

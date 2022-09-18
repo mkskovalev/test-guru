@@ -74,6 +74,8 @@ ru:
         no_questions: "В этом тесте пока нет вопросов..."
         edit_link: "Изменить"
         back_link: "Назад к тестам"
+        time: "Время на выполнение"
+        minutes: "мин."
       destroy:
         success: "Тест успешно удален"
       index:
@@ -84,6 +86,7 @@ ru:
         action: "Действия"
         new_test_link: "Новый тест"
         activity: "Активность"
+        with_timer: "Таймер"
       test:
         show_link: "Просмотр"
         edit_link: "Изменить"

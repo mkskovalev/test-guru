@@ -5,6 +5,14 @@
 
     <p><%= t('.question_count') %>: <%= @test_passage.question_count %> / <%= @test_passage.test.questions.count %></p>
 
+    <%= content_tag :div,
+                    class: 'timer-container',
+                    data: { end_time: @test_passage.end_time,
+                            test_passage_id: @test_passage.id } do %>
+
+      Оставшееся время: <%= content_tag :b, '', id: 'timer' %>
+    <% end%>
+
     <div class="progress my-3">
       <%= content_tag :div,
                       class: 'progress-bar progress-bar-striped bg-success',

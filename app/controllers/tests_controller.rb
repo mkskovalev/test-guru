@@ -4,6 +4,8 @@ class TestsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
+  SECONDS_IN_MINUTE = 60
+
   def index
     @tests = Test.active
   end

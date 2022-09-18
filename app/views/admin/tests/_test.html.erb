@@ -12,6 +12,11 @@
       <%= octicon 'eye-closed', class: 'text-alert' %>
     <% end %>
   </td>
+  <td class="align-middle">
+    <% if test.time > 0 %>
+      <%= octicon 'check-circle', class: 'text-success' %>
+    <% end %>
+  </td>
   <td class="align-middle"><%= link_to t('.show_link'), admin_test_path(test) %></td>
   <td class="align-middle">
     <%= link_to t('.edit_link'),

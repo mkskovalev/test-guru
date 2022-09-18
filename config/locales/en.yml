@@ -72,6 +72,8 @@ en:
         no_questions: "No questions in this test..."
         edit_link: "Edit"
         back_link: "Back to tests"
+        time: "Execution time"
+        minutes: "min."
       destroy:
         success: "Test was successfuly deleted."
       index:
@@ -82,6 +84,7 @@ en:
         action: "Actions"
         new_test_link: "New Test"
         activity: "Activated"
+        with_timer: "Timer"
       test:
         show_link: "Show"
         edit_link: "Edit"
